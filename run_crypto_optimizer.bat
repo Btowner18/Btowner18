@@ -1,0 +1,6 @@
+@echo off
+echo Installing required packages...
+pip install yfinance scipy pandas numpy matplotlib streamlit --quiet
+echo Starting Crypto Portfolio Optimizer...
+python -m streamlit run crypto_optimizer.py
+pause
