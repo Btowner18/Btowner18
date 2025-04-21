@@ -12,6 +12,7 @@ from typing import List, Optional
 import uvicorn
 import re
 import requests
+import os
 
 # ------------------ FUTURISTIC THEME & HEADER ------------------
 
@@ -454,7 +455,7 @@ def optimize_portfolio_api(req: OptimizeRequest):
 async def chat_endpoint(req: ChatRequest, request: Request = None):
     try:
         user_message = req.message.strip()
-        api_key = "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"
+        api_key = os.environ["OPENROUTER_API_KEY"]
         openrouter_url = "https://openrouter.ai/api/v1/chat/completions"
         headers = {
             "Authorization": f"Bearer {api_key}",
@@ -498,8 +499,9 @@ async def chat_endpoint(req: ChatRequest, request: Request = None):
 def get_crypto_news():
     try:
         url = "https://openapiv1.coinstats.app/news?category=cryptocurrency"
+        coinstats_api_key = os.environ["COINSTATS_API_KEY"]
         headers = {
-            "X-API-KEY": "b/acqQuNfUwk97/1j4F/umrieV9oeWV9txiW3wKo/Yk=",
+            "X-API-KEY": coinstats_api_key,
             "Accept": "application/json"
         }
         resp = requests.get(url, headers=headers, timeout=10)
