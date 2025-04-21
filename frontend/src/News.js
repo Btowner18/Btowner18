@@ -8,7 +8,7 @@ function News() {
   const fetchNews = () => {
     setLoading(true);
     setError(null);
-    fetch('/api/news')
+    fetch('https://btowner18.onrender.com/api/news')
       .then(res => res.json())
       .then(data => {
         if (data.error) {

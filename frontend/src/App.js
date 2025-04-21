@@ -183,7 +183,7 @@ function App() {
     setError(null);
     setResult(null);
     try {
-      const response = await fetch('http://localhost:8000/api/optimize', {
+      const response = await fetch('https://btowner18.onrender.com/api/optimize', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
@@ -244,7 +244,7 @@ function App() {
       controller.abort();
     }, 20000); // 20 seconds timeout
     try {
-      const response = await fetch('http://localhost:8000/api/chat', {
+      const response = await fetch('https://btowner18.onrender.com/api/chat', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ message: userMessage.text, model: selectedModel, history: chatMessages }),
